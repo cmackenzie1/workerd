@@ -11627,8 +11627,8 @@ declare module "assets:*" {
 declare module "cloudflare:pipelines" {
   export abstract class PipelineTransformationEntrypoint<
     Env = unknown,
-    I extends PipelineRecord = PipelineRecord,
-    O extends PipelineRecord = PipelineRecord,
+    I extends object = PipelineRecord,
+    O extends object = PipelineRecord,
   > {
     protected env: Env;
     protected ctx: ExecutionContext;
@@ -11647,7 +11647,7 @@ declare module "cloudflare:pipelines" {
     pipelineId: string;
     pipelineName: string;
   };
-  export interface Pipeline<T extends PipelineRecord = PipelineRecord> {
+  export interface Pipeline<T extends object = PipelineRecord> {
     /**
      * The Pipeline interface represents the type of a binding to a Pipeline
      *
